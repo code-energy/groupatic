@@ -15,7 +15,9 @@
   "license": "SEE LICENSE IN LICENSE",
   "author": "Wladston Ferreira Filho <wlad@code.energy> (http://wladston.net)",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --mode development --open --hot",
+    "dev:client": "NODE_ENV=development webpack-dev-server --mode development --open --hot",
+    "dev:backend": "ENV=development adev runserver",
+    "dev": "npm run dev:backend & npm run dev:client",
     "build": "NODE_ENV=production webpack --mode production"
   },
   "dependencies": {

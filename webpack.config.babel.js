@@ -21,5 +21,6 @@ export default {
           <body><div id="vue-main"></div></body>
         </html>`
     })
-  ]
+  ],
+  "devServer": { "proxy": { "/api/": "http://127.0.0.1:8000" } }
 }
