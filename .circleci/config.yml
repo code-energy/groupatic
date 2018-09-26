@@ -5,7 +5,7 @@ jobs:
       - image: circleci/python:3.7.0-node
     steps:
       - checkout
-        - restore_cache:
+      - restore_cache:
            key: python-deps-{{ checksum "requirements.txt" }}
       - run: python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt
         #- restore_cache:
