@@ -9,7 +9,8 @@ jobs:
            key: python-deps-{{ checksum "requirements.txt" }}
       - restore_cache:
            key: node-deps-{{ checksum "package.json" }}
-      - run: |
+      - run:
+          name: Install npm and pip dependencies.
           command: |
             python3 -m venv venv 
             . venv/bin/activate 
