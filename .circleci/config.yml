@@ -5,22 +5,28 @@ jobs:
       - image: circleci/python:3.7.0-node
     steps:
       - checkout
+
       - restore_cache:
            key: python-deps-{{ checksum "requirements.txt" }}
-      - restore_cache:
-           key: node-deps-{{ checksum "package.json" }}
       - run:
-          name: Install npm and pip dependencies.
+          name: Install pip dependencies
           command: |
             python3 -m venv venv 
             . venv/bin/activate 
             pip install -r requirements.txt
-            npm install
       - save_cache:
             key: python-deps-{{ checksum "requirements.txt" }}
             paths:
               - venv
+
+      - restore_cache:
+           key: node-deps-{{ checksum "package.json" }}
+      - run:
+          name: Install npm dependencies
+          command: npm install
       - save_cache:
             key: node-deps-{{ checksum "package.json" }}
             paths:
               - node_modules
+
+      - run: npm build
