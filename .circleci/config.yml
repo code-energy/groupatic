@@ -10,10 +10,11 @@ jobs:
       - restore_cache:
            key: node-deps-{{ checksum "package.json" }}
       - run: |
-        python3 -m venv venv 
-        . venv/bin/activate 
-        pip install -r requirements.txt
-        npm install
+          command: |
+            python3 -m venv venv 
+            . venv/bin/activate 
+            pip install -r requirements.txt
+            npm install
       - save_cache:
             key: python-deps-{{ checksum "requirements.txt" }}
             paths:
