@@ -7,29 +7,19 @@ jobs:
       - checkout
 
       - restore_cache:
-           key: python-deps-{{ checksum "requirements.txt" }}
+           key: deps-{{ checksum "setup.py" }}-{{ checksum "package.json" }}
       - run:
-          name: Install pip dependencies
-          command: |
-            python3 -m venv venv 
-            . venv/bin/activate 
-            pip install -r requirements.txt
+          name: Install python and node dependencies
+          command: make install
       - save_cache:
-            key: python-deps-{{ checksum "requirements.txt" }}
+            key: python-deps-{{ checksum "setup.py" }}
             paths:
-              - venv
-
-      - restore_cache:
-           key: node-deps-{{ checksum "package.json" }}
-      - run:
-          name: Install npm dependencies
-          command: npm install
-      - save_cache:
-            key: node-deps-{{ checksum "package.json" }}
-            paths:
+              - .venv
               - node_modules
 
+      - run: make tests
       - run: npm run build
+
       - persist_to_workspace:
           root: .
           paths: dist
