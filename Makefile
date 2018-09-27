@@ -12,8 +12,15 @@ install:
 	. $(VENV_DIR)/bin/activate &&\
 	pip install -e . &&\
 	deactivate
+	npm install --only=production
+
+install-dev:
+	$(MAKE) install
+	. $(VENV_DIR)/bin/activate &&\
+	pip install -e '.[dev]'
 	npm install
 
 tests:
 	. $(VENV_DIR)/bin/activate &&\
+	pip install -e '.[tests]' &&\
 	pylava backend

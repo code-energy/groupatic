@@ -8,7 +8,7 @@ This is the proto-prototype of a next generation online community.
 
 ``` bash
 # Install dependencies:
-make install
+make install-dev
 
 # Serve with hot reload at localhost:8080:
 npm run dev
