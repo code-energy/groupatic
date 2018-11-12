@@ -6,6 +6,13 @@
 
 <script>
 export default { name: 'App' }
+fetch('/api/')
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(text) {
+    console.log(text);
+  });
 </script>
 
 <style>

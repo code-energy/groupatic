@@ -1,0 +1,21 @@
+version: '3'
+services:
+  frontend:
+    build:  ./frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/usr/app/:ro
+      - /usr/app/node_modules
+    ports:
+      - 80:80
+    links:
+      - backend
+    environment:
+        NODE_ENV: "${ENV}"
+  backend:
+    build: ./backend
+    command: adev runserver
+    volumes:
+      - ./backend:/usr/src/app
+    volumes:
+      - ./backend:/usr/app/:ro

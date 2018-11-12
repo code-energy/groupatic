@@ -1,24 +1,12 @@
-all: clean install tests
-.PHONY: all
+# TODO: Modify docker so that it can be configured to run in production mode.
+# TODO: Run the tests via docker.
 
-VENV_DIR = .venv
-
-clean:
-	rm -rf *.egg-info $(VENV_DIR)
-	rm -rf node_modules
-
-install:
+install-prod:
 	python3 -m venv $(VENV_DIR)
 	. $(VENV_DIR)/bin/activate &&\
 	pip install -e . &&\
 	deactivate
 	npm install --only=production
-
-install-dev:
-	$(MAKE) install
-	. $(VENV_DIR)/bin/activate &&\
-	pip install -e '.[dev]'
-	npm install
 
 tests:
 	. $(VENV_DIR)/bin/activate &&\

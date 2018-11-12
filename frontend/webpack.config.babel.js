@@ -22,5 +22,10 @@ export default {
         </html>`
     })
   ],
-  "devServer": { "proxy": { "/api/": "http://127.0.0.1:8000" } }
+  devServer: {
+    inline: true,
+    port: 80,
+    host: '0.0.0.0',
+    proxy: {"/api/": "http://backend:8000"}
+  }
 }

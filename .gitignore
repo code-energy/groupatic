@@ -1,5 +1,3 @@
-node_modules
-dist
-.venv
-*.egg-info
+.env
 __pycache__
+node_modules

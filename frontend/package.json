@@ -1,0 +1,34 @@
+{
+  "name": "groupatic",
+  "version": "0.0.0",
+  "description": "Next generation online community.",
+  "keywords": [
+    "bulletin board",
+    "internet forum",
+    "online community",
+    "social network"
+  ],
+  "homepage": "https://groupatic.com",
+  "bugs": {
+    "email": "wlad@code.energy"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Wladston Ferreira Filho <wlad@code.energy> (http://wladston.net)",
+  "scripts": { "dev": "webpack-dev-server --mode development --hot" },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "css-loader": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "npm": "^6.4.1",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "private": true
+}
