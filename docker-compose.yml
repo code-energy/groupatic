@@ -5,7 +5,7 @@ services:
     command: npm run dev
     volumes:
       - ./frontend:/usr/app/:ro
-      - /usr/app/node_modules
+      - /usr/app/node_modules/
     ports:
       - 80:80
     links:
@@ -15,7 +15,5 @@ services:
   backend:
     build: ./backend
     command: adev runserver
-    volumes:
-      - ./backend:/usr/src/app
     volumes:
       - ./backend:/usr/app/:ro
