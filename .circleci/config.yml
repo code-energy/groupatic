@@ -1,25 +1,10 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/python:3.7.0-node
+    machine: true
+    working_directory: ~/repo
     steps:
       - checkout
-
-      - restore_cache:
-           key: deps-{{ checksum "setup.py" }}-{{ checksum "package.json" }}
-      - run:
-          name: Install python and node dependencies
-          command: make install
-      - save_cache:
-            key: python-deps-{{ checksum "setup.py" }}
-            paths:
-              - .venv
-              - node_modules
-
-      - run: make tests
-      - run: npm run build
-
-      - persist_to_workspace:
-          root: .
-          paths: dist
+      - run: cp .env.sample .env
+      - run: docker-compose up -d
+      - run : pylava backend
