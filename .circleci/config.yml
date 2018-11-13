@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run: cp .env.sample .env
       - run: docker-compose up -d
-      - run : pylava backend
+      - run: docker-compose exec backend pylava backend
