@@ -14,7 +14,9 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "author": "Wladston Ferreira Filho <wlad@code.energy> (http://wladston.net)",
-  "scripts": { "dev": "webpack-dev-server --mode development --hot" },
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --hot"
+  },
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
@@ -23,6 +25,7 @@
     "npm": "^6.4.1",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
+    "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.17",
     "webpack-cli": "^3.1.2"
   },

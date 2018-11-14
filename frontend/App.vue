@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-      <h1>Welcome to Groupatic!</h1>
+    <h1>Welcome to Groupatic!</h1>
+    <main>
+      <nav>
+        <router-link to="/login">Login</router-link>
+      </nav>
+      <section>
+      <router-view/>
+      </section>
+    </main>
   </div>
 </template>
 
